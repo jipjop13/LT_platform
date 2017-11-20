@@ -1,0 +1,34 @@
+
+.tire {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.tire.i {
+    background-color: #80B742;
+}
+
+.tire.us {
+    background-color: #D353E1;
+}
+
+.tire.ss {
+    background-color: #CD4033;
+}
+
+.tire.s {
+    background-color: #FEE361;
+}
+
+.tire.m {
+    background-color: #E4E4E4;
+}
+
+.tire.h {
+    background-color: #FE7338;
+}
+
+.tire.w {
+    background-color: #4D96E7;
+}

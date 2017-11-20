@@ -1,37 +1,62 @@
 import React, { Component } from 'react';
+import Tire from "./Tire";
 
 class Stream extends Component {
 
     render() {
         return (
             <div className="RaceData">
-                <table className="table">
+                <table className="table table-dark table-striped table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Username</th>
+                        <th scope="col">Pos</th>
+                        <th scope="col">Driver</th>
+                        <th scope="col">Gap</th>
+                        <th scope="col">Sector 1</th>
+                        <th scope="col">Sector 2</th>
+                        <th scope="col">Sector 3</th>
+                        <th scope="col">Laptime</th>
+                        <th scope="col">Lap</th>
+                        <th scope="col">Pits</th>
+                        <th scope="col">Tires</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>1</td>
+                        <td>Otte</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>69</td>
+                        <td>2</td>
+                        <td><Tire type="i" /></td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td>2</td>
+                        <td>Motte</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>69</td>
+                        <td>2</td>
+                        <td><Tire type="us" /></td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
+                        <td>3</td>
+                        <td>Geert</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>69</td>
+                        <td>2</td>
+                        <td><Tire type="w" /></td>
                     </tr>
                     </tbody>
                 </table>
