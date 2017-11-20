@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../stylesheets/tires.css'
+import '../stylesheets/Tire.css'
 
 class Tire extends Component {
 

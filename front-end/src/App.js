@@ -3,7 +3,7 @@ import {Router, Route, Switch} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import NotFound from "./containers/NotFound";
 import Stream from "./containers/Stream";
-import './stylesheets/main.css'
+import './stylesheets/App.css'
 
 const history = createBrowserHistory();
 
