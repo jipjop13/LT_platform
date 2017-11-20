@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RaceData from "../components/RaceData";
 
 const Twitch = window.Twitch;
 
@@ -22,7 +23,7 @@ class Stream extends Component {
                             <div id="twitch-embed"/>
                         </div>
                         <div className="col-6">
-                            Racedata
+                            <RaceData />
                         </div>
                         <div className="col-6">
                             Map
