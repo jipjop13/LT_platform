@@ -1,0 +1,10 @@
+
+.idea/
+back-end/.idea/
+front-end/.idea/
+UDPTelemetry/.idea/
+bin/
+include/
+lib/
+pip-selfcheck.json
+*.pyc
