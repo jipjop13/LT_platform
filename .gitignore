@@ -1,2 +1,12 @@
 front-end/node_modules/
 front-end/.idea/
+.idea/
+back-end/.idea/
+front-end/.idea/
+UDPTelemetry/.idea/
+bin/
+include/
+lib/
+pip-selfcheck.json
+*.pyc
+
