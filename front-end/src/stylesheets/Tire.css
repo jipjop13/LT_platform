@@ -1,34 +1,28 @@
 
-.Tire .tire {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
+.Tire .i {
+    color: #80B742;
 }
 
-.Tire .tire.i {
-    background-color: #80B742;
+.Tire .us {
+    color: #D353E1;
 }
 
-.Tire .tire.us {
-    background-color: #D353E1;
+.Tire .ss {
+    color: #CD4033;
 }
 
-.Tire .tire.ss {
-    background-color: #CD4033;
+.Tire .s {
+    color: #FEE361;
 }
 
-.Tire .tire.s {
-    background-color: #FEE361;
+.Tire .m {
+    color: #E4E4E4;
 }
 
-.Tire .tire.m {
-    background-color: #E4E4E4;
+.Tire .h {
+    color: #FE7338;
 }
 
-.Tire .tire.h {
-    background-color: #FE7338;
-}
-
-.Tire .tire.w {
-    background-color: #4D96E7;
+.Tire .w {
+    color: #4D96E7;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RaceData from "../components/RaceData";
-import '../stylesheets/Stream.css';
 import Circuit from "../components/Circuit";
+import '../stylesheets/Stream.css';
 
 const Twitch = window.Twitch;
 
@@ -20,17 +20,17 @@ class Stream extends Component {
         return (
             <div className="Stream">
                 <div className="row no-gutters">
-                    <div className="col-sm-12 col-md-4">
+                    <div className="col-12 col-md-6 col-lg-4">
                         <div className="row no-gutters">
-                            <div className="col-sm-12">
+                            <div className="col-12 col-md-12">
                                 <div id="twitch-embed"/>
                             </div>
-                            <div className="col-sm-12">
+                            <div className="col-12 col-md-12">
                                 <Circuit />
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-12 col-md-8">
+                    <div className="col-12 col-md-6 col-lg-8">
                         <RaceData />
                     </div>
                 </div>

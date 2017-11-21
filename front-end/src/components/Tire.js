@@ -20,7 +20,11 @@ class Tire extends Component {
         let tireLabel = Tire.TYPES_LABELS[type];
         return (
             <div className="Tire">
-                <div className={"tire " + tire} data-toggle="tooltip" data-placement="left" title={tireLabel} />
+                <i className={"fa fa-circle-o-notch " + tire}
+                   data-toggle="tooltip"
+                   data-placement="left"
+                   title={tireLabel}
+                   aria-hidden="true" />
             </div>
         );
     }
