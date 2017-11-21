@@ -16,14 +16,14 @@ class Tire extends Component {
 
     render() {
         let type = this.props.type;
-        let tire = Tire.TYPES[type];
-        let tireLabel = Tire.TYPES_LABELS[type];
+        let color = Tire.TYPES[type];
+        let label = Tire.TYPES_LABELS[type];
         return (
             <div className="Tire">
-                <i className={"fa fa-circle-o-notch " + tire}
+                <i className={"fa fa-circle-o-notch " + color}
                    data-toggle="tooltip"
                    data-placement="left"
-                   title={tireLabel}
+                   title={label}
                    aria-hidden="true" />
             </div>
         );

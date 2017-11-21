@@ -364,9 +364,24 @@ const data = {
 class RaceData extends Component {
 
     render() {
+        let headers = (
+            <tr>
+                <th>Pos</th>
+                <th>Driver</th>
+                <th>Gap</th>
+                <th>Fastest lap</th>
+                <th>Current lap</th>
+                <th>Sector 1</th>
+                <th>Sector 2</th>
+                <th>Sector 3</th>
+                <th>Lap</th>
+                <th>Pits</th>
+                <th>Tires</th>
+            </tr>
+        );
+
         let rows = [];
         let cars = Helper.sortByKey(data.cars, 'car_position');
-
         for(let i=0; i<cars.length; i++) {
             let car = cars[i];
             rows.push(
@@ -390,19 +405,7 @@ class RaceData extends Component {
             <div className="RaceData">
                 <table className="table table-dark table-striped table-hover table-sm">
                     <thead>
-                    <tr>
-                        <th scope="col">Pos</th>
-                        <th scope="col">Driver</th>
-                        <th scope="col">Gap</th>
-                        <th scope="col">Fastest lap</th>
-                        <th scope="col">Current lap</th>
-                        <th scope="col">Sector 1</th>
-                        <th scope="col">Sector 2</th>
-                        <th scope="col">Sector 3</th>
-                        <th scope="col">Lap</th>
-                        <th scope="col">Pits</th>
-                        <th scope="col">Tires</th>
-                    </tr>
+                        {headers}
                     </thead>
                     <tbody>
                         {rows}

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import RaceData from "../components/RaceData";
 import Circuit from "../components/Circuit";
-import '../stylesheets/Stream.css';
+import '../stylesheets/LiveData.css';
 
 const Twitch = window.Twitch;
 
-class Stream extends Component {
+class LiveData extends Component {
 
     componentDidMount() {
         new Twitch.Embed("twitch-embed", {
@@ -22,10 +22,10 @@ class Stream extends Component {
                 <div className="row no-gutters">
                     <div className="col-12 col-md-6 col-lg-4">
                         <div className="row no-gutters">
-                            <div className="col-12 col-md-12">
+                            <div className="col-12">
                                 <div id="twitch-embed"/>
                             </div>
-                            <div className="col-12 col-md-12">
+                            <div className="col-12">
                                 <Circuit />
                             </div>
                         </div>
@@ -39,4 +39,4 @@ class Stream extends Component {
     }
 }
 
-export default Stream;
+export default LiveData;

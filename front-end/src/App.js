@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import NotFound from "./containers/NotFound";
-import Stream from "./containers/Stream";
+import LiveData from "./containers/LiveData";
 import NavBar from "./components/NavBar";
 import './stylesheets/App.css';
 
@@ -16,7 +16,7 @@ class App extends Component {
                 <NavBar />
                 <Router history={history}>
                     <Switch>
-                        <Route exact path="/" component={Stream} />
+                        <Route exact path="/" component={LiveData} />
                         <Route exact path="*" component={NotFound} />
                     </Switch>
                 </Router>
