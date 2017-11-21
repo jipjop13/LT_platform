@@ -5,12 +5,8 @@ const $ = window.$;
 
 class Tire extends Component {
 
-    static TYPES = ["i", "us", "ss", "s", "h", "m", "w"];
-    static TYPES_LABELS = ["Intermediate", "Ultra soft", "Super soft", "Soft", "Hard", "Medium", "Wet"];
-
-    constructor(props) {
-        super(props)
-    }
+    static TYPES = ["us", "ss", "s", "m", "h", "i", "w"];
+    static TYPES_LABELS = ["Ultra soft", "Super soft", "Soft", "Medium", "Hard", "Intermediate", "Wet"];
 
     componentDidMount() {
         $(function () {
@@ -19,11 +15,12 @@ class Tire extends Component {
     }
 
     render() {
-        let tire = Tire.TYPES[this.props.type];
-        let tireLabel = Tire.TYPES_LABELS[this.props.type];
+        let type = this.props.type;
+        let tire = Tire.TYPES[type];
+        let tireLabel = Tire.TYPES_LABELS[type];
         return (
             <div className="Tire">
-                <div className={"tire " + tire} data-toggle="tooltip" data-placement="top" title={tireLabel} />
+                <div className={"tire " + tire} data-toggle="tooltip" data-placement="left" title={tireLabel} />
             </div>
         );
     }
