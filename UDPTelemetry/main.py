@@ -1,6 +1,7 @@
 import socket
 import struct
 import json
+import requests
 
 UDP_IP = "127.0.0.1"
 UDP_PORT = 20777
@@ -8,8 +9,13 @@ UDP_PORT = 20777
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((UDP_IP, UDP_PORT))
 
+counter = 0
+
 class Car:
     def __init__(self):
+        self.x_world_position = 0
+        self.y_world_position = 0
+        self.z_world_position = 0
         self.last_lap_time = 0
         self.current_lap_time = 0
         self.best_lap_time = 0
@@ -25,24 +31,6 @@ class Car:
         self.sector = 0
         self.current_lap_invalid = 0
         self.penalties = 0
-
-    def dump(self):
-        return {'last_lap_time':self.last_lap_time,
-                        'current_lap_time': self.current_lap_time,
-                        'best_lap_time': self.best_lap_time,
-                        'sector_1_time': self.sector_1_time,
-                        'sector_2_time': self.sector_2_time,
-                        'lap_distance': self.lap_distance,
-                        'driver_id': self.driver_id,
-                        'team_id': self.team_id,
-                        'car_position': self.car_position,
-                        'current_lap_number': self.current_lap_number,
-                        'tyre_compound': self.tyre_compound,
-                        'in_pits': self.in_pits,
-                        'sector': self.sector,
-                        'current_lap_invalid': self.current_lap_invalid,
-                        'penalties': self.penalties
-        }
 
 class Session:
     def __init__(self):
@@ -62,9 +50,11 @@ class Session:
 def create_car_objects(data):
     cars = []
     number_of_cars = struct.unpack('b', data[335:336])[0]  # 4 bytes at a time
-    print(number_of_cars)
     for i in range(number_of_cars):
         car = Car()
+        car.x_world_position = struct.unpack('f', data[337 + 45 * i:337 + 45 * i + 4])[0]
+        car.y_world_position = struct.unpack('f', data[341 + 45 * i:341 + 45 * i + 4])[0]
+        car.z_world_position = struct.unpack('f', data[345 + 45 * i:345 + 45 * i + 4])[0]
         car.last_lap_time = struct.unpack('f', data[349 + 45 * i:349 + 45 * i + 4])[0]
         car.current_lap_time = struct.unpack('f', data[353 + 45 * i:353 + 45 * i + 4])[0]
         car.best_lap_time = struct.unpack('f', data[357 + 45 * i:357 + 45 * i + 4])[0]
@@ -102,19 +92,30 @@ def create_session_object(data):
 
     return session
 
-while True:
-    data, addr = sock.recvfrom(1289)
-
+def send_data(data):
     cars = create_car_objects(data)
     session = create_session_object(data)
 
-    jsonoutput = []
+    cars_json = []
 
     for car in cars:
-        d = car.__dict__
-        jsonoutput.append(json.dumps(d, ensure_ascii=False))
+        cars_json.append(car.__dict__)
 
+    json_data = {}
+    json_data['session'] = session.__dict__
+    json_data['cars'] = cars_json
+    dumped_json = json.dumps(json_data)
 
-    print(jsonoutput)
-    with open('data.json', 'w') as f:
-        json.dump([car.dump() for o in cars],f)
+    print("JSON send")
+    print(dumped_json)
+    #r = requests.post('URL', dumped_json)
+    #print(r.status_code)
+
+while True:
+    data, addr = sock.recvfrom(1289)
+
+    if counter == 20:
+        send_data(data)
+        counter = 0
+
+    counter += 1
