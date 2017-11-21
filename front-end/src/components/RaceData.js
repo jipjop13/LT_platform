@@ -1,63 +1,47 @@
 import React, { Component } from 'react';
 import Tire from "./Tire";
 
-class Stream extends Component {
+class RaceData extends Component {
 
     render() {
+        let rows = [];
+        for(let i=1; i<=20; i++) {
+            let tires = Math.ceil(Math.random() * 6);
+            rows.push(
+                <tr>
+                    <td>{i}</td>
+                    <td>OTTE</td>
+                    <td>1:12,000</td>
+                    <td>0:43,123</td>
+                    <td>0:47,567</td>
+                    <td>0:45,890</td>
+                    <td>0:46,524</td>
+                    <td>69</td>
+                    <td>2</td>
+                    <td><Tire type={tires} /></td>
+                </tr>
+            )
+        }
+
         return (
             <div className="RaceData">
-                <table className="table table-dark table-striped table-hover">
+                <table className="table table-dark table-striped table-hover table-sm">
                     <thead>
                     <tr>
                         <th scope="col">Pos</th>
                         <th scope="col">Driver</th>
                         <th scope="col">Gap</th>
+                        <th scope="col">Lap time</th>
                         <th scope="col">Sector 1</th>
                         <th scope="col">Sector 2</th>
                         <th scope="col">Sector 3</th>
-                        <th scope="col">Laptime</th>
                         <th scope="col">Lap</th>
                         <th scope="col">Pits</th>
                         <th scope="col">Tires</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Otte</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>69</td>
-                        <td>2</td>
-                        <td><Tire type="i" /></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Motte</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>69</td>
-                        <td>2</td>
-                        <td><Tire type="us" /></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Geert</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>69</td>
-                        <td>2</td>
-                        <td><Tire type="w" /></td>
-                    </tr>
+                        {rows}
                     </tbody>
                 </table>
             </div>
@@ -65,4 +49,4 @@ class Stream extends Component {
     }
 }
 
-export default Stream;
+export default RaceData;

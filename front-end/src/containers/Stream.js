@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RaceData from "../components/RaceData";
+import circuit from "../assets/images/china.svg";
 
 const Twitch = window.Twitch;
 
@@ -9,7 +10,7 @@ class Stream extends Component {
         new Twitch.Embed("twitch-embed", {
             width: '100%',
             height: '100%',
-            channel: "lirik",
+            channel: "monstercat",
             layout: "video"
         })
     }
@@ -19,13 +20,17 @@ class Stream extends Component {
             <div className="Stream">
                 <div className="row no-gutters">
                     <div className="col-sm-12 col-md-6">
-                        <div id="twitch-embed"/>
+                        <div className="row no-gutters">
+                            <div className="col-sm-12">
+                                <div id="twitch-embed"/>
+                            </div>
+                            <div className="col-sm-12">
+                                <img src={circuit} alt="circuit"/>
+                            </div>
+                        </div>
                     </div>
                     <div className="col-sm-12 col-md-6">
                         <RaceData />
-                    </div>
-                    <div className="col-sm-12 col-md-6">
-                        Map
                     </div>
                 </div>
             </div>
