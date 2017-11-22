@@ -1,6 +1,9 @@
 
 body {
-    background: linear-gradient(135deg, #1B2F43 0%, #06121E 60%) no-repeat fixed;
+    background: linear-gradient(135deg, #1B2F43 20%, #06121E 80%) no-repeat fixed;
     color: white;
-    padding-top: 75px;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
 }

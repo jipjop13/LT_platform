@@ -16,6 +16,8 @@ class Helper {
         let prefix = "";
         if (seconds < 60)
             prefix = "0:";
+        if (seconds < 10)
+            prefix += "0";
         return prefix + duration.format("m:ss.ms");
     }
 

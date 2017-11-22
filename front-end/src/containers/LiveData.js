@@ -8,7 +8,8 @@ class LiveData extends Component {
     render() {
         return (
             <div className="Stream">
-                <div className="row no-gutters">
+                <div className="container-fluid">
+                <div className="row">
                     <div className="col-12 col-md-6 col-lg-6">
                         <div className="row">
                             <div className="col-12">
@@ -22,6 +23,7 @@ class LiveData extends Component {
                     <div className="col-12 col-md-6 col-lg-6">
                         <RaceData />
                     </div>
+                </div>
                 </div>
             </div>
         );

@@ -394,14 +394,16 @@ class RaceData extends Component {
 
         return (
             <div className="RaceData">
-                <table className="table table-striped table-hover table-sm">
-                    <thead>
-                        {headers}
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
+                <div className="table-responsive">
+                    <table className="table table-striped table-hover table-sm shadow">
+                        <thead>
+                            {headers}
+                        </thead>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     }
