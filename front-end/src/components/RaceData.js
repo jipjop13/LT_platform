@@ -384,16 +384,21 @@ class RaceData extends Component {
         let cars = Helper.sortByKey(data.cars, 'car_position');
         for(let i=0; i<cars.length; i++) {
             let car = cars[i];
+            let car_ahead = cars[i-1];
+            car.sector_1_time = (car.sector_1_time === 0) ? car.current_lap_time : car.sector_1_time;
+            car.sector_2_time = (car.sector_2_time === 0) ? (car.current_lap_time - car.sector_1_time) : car.sector_2_time;
+            car.sector_3_time = (car.sector_1_time && car.sector_2_time) ? (car.current_lap_time - car.sector_1_time - car.sector_2_time) : 0;
+            car.gap = car_ahead ? (car_ahead.current_lap_time - car.current_lap_time) : 0;
             rows.push(
                 <tr key={i}>
                     <td>{car.car_position}</td>
                     <td>{car.driver_id}</td>
-                    <td>N/A</td>
+                    <td>{car.gap}</td>
                     <td>{car.best_lap_time}</td>
                     <td>{car.current_lap_time}</td>
                     <td>{car.sector_1_time}</td>
                     <td>{car.sector_2_time}</td>
-                    <td>N/A</td>
+                    <td>{car.sector_3_time}</td>
                     <td>{car.current_lap_number}</td>
                     <td>N/A</td>
                     <td><Tire type={car.tyre_compound} /></td>
