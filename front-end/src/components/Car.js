@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tire from "./Tire";
+import Helper from "../utilities/Helper";
 
 class Car extends Component {
 
@@ -9,37 +10,50 @@ class Car extends Component {
         let data = props.data;
 
         // Sector 1
-        let sector_1_time = data.sector_1_time;
+        let sectorOneTime = data.sector_1_time;
         if (data.sector_1_time === 0)
-            sector_1_time = data.current_lap_time;
+            sectorOneTime = data.current_lap_time;
 
         // Sector 2
-        let sector_2_time = data.sector_2_time;
+        let sectorTwoTime = data.sector_2_time;
         if (data.sector_2_time === 0)
-            sector_2_time = data.current_lap_time - data.sector_1_time;
+            sectorTwoTime = data.current_lap_time - data.sector_1_time;
 
         // Sector 3
-        let sector_3_time = 0;
+        let sectorThreeTime = 0;
         if (data.sector_1_time && data.sector_2_time)
-            sector_3_time = data.current_lap_time - data.sector_1_time - data.sector_1_time;
+            sectorThreeTime = data.current_lap_time - data.sector_1_time - data.sector_2_time;
 
         // Gap
         let gap = 0;
         if (data.car_ahead)
             gap = data.car_ahead.current_lap_time - data.current_lap_time;
 
+        // Convert time in seconds to a readable format
+        let bestLapTime = Helper.secondsToStr(data.best_lap_time);
+        let currentLapTime = Helper.secondsToStr(data.current_lap_time);
+        sectorOneTime = Helper.secondsToStr(sectorOneTime);
+        sectorTwoTime = Helper.secondsToStr(sectorTwoTime);
+        sectorThreeTime = Helper.secondsToStr(sectorThreeTime);
+        gap = Helper.secondsToStr(gap);
+
+        // Check if in pits
+        let inPits = "";
+        if (data.in_pits === 1) inPits = "Pitting";
+        if (data.in_pits === 2) inPits = "In Pit Area";
+
         // Initial state
         this.state = {
             car_position: data.car_position,
             driver_id: data.driver_id,
             gap: gap,
-            best_lap_time: data.best_lap_time,
-            current_lap_time: data.current_lap_time,
-            sector_1_time: sector_1_time,
-            sector_2_time: sector_2_time,
-            sector_3_time: sector_3_time,
+            best_lap_time: bestLapTime,
+            current_lap_time: currentLapTime,
+            sector_1_time: sectorOneTime,
+            sector_2_time: sectorTwoTime,
+            sector_3_time: sectorThreeTime,
             current_lap_number: data.current_lap_number,
-            in_pits: data.in_pits,
+            in_pits: inPits,
             tyre_compound: data.tyre_compound,
             car_ahead: data.car_ahead,
             car_behind: data.car_behind,

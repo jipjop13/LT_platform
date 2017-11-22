@@ -8,18 +8,18 @@ class LiveData extends Component {
     render() {
         return (
             <div className="Stream">
-                <div className="row">
-                    <div className="col-12 col-md-6 col-lg-4">
+                <div className="row no-gutters">
+                    <div className="col-12 col-md-6 col-lg-6">
                         <div className="row">
                             <div className="col-12">
                                 <Stream />
                             </div>
-                            <div className="col-12">
+                            <div className="col-12 col-md-6 offset-md-3">
                                 <Circuit />
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-8">
+                    <div className="col-12 col-md-6 col-lg-6">
                         <RaceData />
                     </div>
                 </div>
