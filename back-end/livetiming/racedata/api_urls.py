@@ -1,13 +1,13 @@
 from django.conf.urls import url
 
 from .api_views import (
-    receive_live_data
+    ReceiveLiveData
 )
 
 urlpatterns = (
     url(
-        r'^post_live_data',
-        receive_live_data,
+        r'^post-live-data/',
+        ReceiveLiveData.as_view(),
         name='receive_live_data',
     ),
 )
