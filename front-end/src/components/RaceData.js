@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Tire from "./Tire";
 import Helper from "../utilities/Helper";
+import '../stylesheets/RaceData.css';
+import Car from "./Car";
 
 const data = {
     "session": {
@@ -384,31 +385,16 @@ class RaceData extends Component {
         let cars = Helper.sortByKey(data.cars, 'car_position');
         for(let i=0; i<cars.length; i++) {
             let car = cars[i];
-            let car_ahead = cars[i-1];
-            car.sector_1_time = (car.sector_1_time === 0) ? car.current_lap_time : car.sector_1_time;
-            car.sector_2_time = (car.sector_2_time === 0) ? (car.current_lap_time - car.sector_1_time) : car.sector_2_time;
-            car.sector_3_time = (car.sector_1_time && car.sector_2_time) ? (car.current_lap_time - car.sector_1_time - car.sector_2_time) : 0;
-            car.gap = car_ahead ? (car_ahead.current_lap_time - car.current_lap_time) : 0;
+            car.car_ahead = cars[i-1];
+            car.car_behind = cars[i+1];
             rows.push(
-                <tr key={i}>
-                    <td>{car.car_position}</td>
-                    <td>{car.driver_id}</td>
-                    <td>{car.gap}</td>
-                    <td>{car.best_lap_time}</td>
-                    <td>{car.current_lap_time}</td>
-                    <td>{car.sector_1_time}</td>
-                    <td>{car.sector_2_time}</td>
-                    <td>{car.sector_3_time}</td>
-                    <td>{car.current_lap_number}</td>
-                    <td>N/A</td>
-                    <td><Tire type={car.tyre_compound} /></td>
-                </tr>
+                <Car key={i} data={car} />
             )
         }
 
         return (
             <div className="RaceData">
-                <table className="table table-dark table-striped table-hover table-sm">
+                <table className="table table-striped table-hover table-sm">
                     <thead>
                         {headers}
                     </thead>

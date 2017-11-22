@@ -19,9 +19,9 @@ class LiveData extends Component {
     render() {
         return (
             <div className="Stream">
-                <div className="row no-gutters">
+                <div className="row">
                     <div className="col-12 col-md-6 col-lg-4">
-                        <div className="row no-gutters">
+                        <div className="row">
                             <div className="col-12">
                                 <div id="twitch-embed"/>
                             </div>

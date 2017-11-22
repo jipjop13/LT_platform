@@ -1,0 +1,14 @@
+
+.RaceData .table th,
+.RaceData .table td {
+    border-top: 0;
+}
+
+.RaceData .table-striped thead,
+.RaceData .table-striped tbody tr:nth-of-type(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.RaceData .table-striped tbody tr:nth-of-type(odd) {
+    background-color: transparent;
+}

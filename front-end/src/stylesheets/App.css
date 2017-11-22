@@ -1,6 +1,6 @@
 
 body {
-    background-color: #212529;
+    background: linear-gradient(135deg, #1B2F43 0%, #06121E 60%) no-repeat fixed;
     color: white;
-    padding-top: 55px;
+    padding-top: 75px;
 }
