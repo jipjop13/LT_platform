@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 import RaceData from "../components/RaceData";
 import Circuit from "../components/Circuit";
-import '../stylesheets/LiveData.css';
-
-const Twitch = window.Twitch;
+import Stream from "../components/Stream";
 
 class LiveData extends Component {
-
-    componentDidMount() {
-        new Twitch.Embed("twitch-embed", {
-            width: '100%',
-            height: '100%',
-            channel: "monstercat",
-            layout: "video"
-        })
-    }
 
     render() {
         return (
@@ -23,7 +12,7 @@ class LiveData extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                         <div className="row">
                             <div className="col-12">
-                                <div id="twitch-embed"/>
+                                <Stream />
                             </div>
                             <div className="col-12">
                                 <Circuit />
