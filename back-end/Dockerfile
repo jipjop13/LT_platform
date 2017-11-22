@@ -51,4 +51,3 @@ COPY . /home/docker/code/
 
 EXPOSE 80
 CMD ["supervisord", "-n"]
-CMD [ "python3", "home/docker/code/manage.py", "runserver"]
