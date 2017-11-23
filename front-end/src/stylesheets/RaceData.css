@@ -29,4 +29,5 @@
 .RaceData .table-striped tbody tr:nth-of-type(even):hover,
 .RaceData .table-striped tbody tr:nth-of-type(odd):hover {
     background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
