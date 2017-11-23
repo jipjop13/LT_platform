@@ -13,10 +13,10 @@ const data = {
         "total_distance": 11128.728515625,
         "total_laps": 29,
         "track_size": 5301.28125,
-        "session_type": 2,
+        "session_type": 3,
         "drs_allowed": 0,
         "track_number": 0,
-        "vehicle_fia_flags": 0,
+        "vehicle_fia_flags": 4,
         "session_time_left": 6853.77001953125,
         "number_of_cars": 20
     },

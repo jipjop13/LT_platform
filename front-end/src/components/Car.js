@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tire from "./Tire";
 import Helper from "../utilities/Helper";
+import Icon from "./Icon";
 
 class Car extends Component {
 
@@ -57,7 +58,7 @@ class Car extends Component {
             if (carPosition === 1) trophyColor = "gold";
             if (carPosition === 2) trophyColor = "silver";
             if (carPosition === 3) trophyColor = "bronze";
-            carPosition = (<i className={"fa fa-trophy " + trophyColor} aria-hidden="true" />);
+            carPosition = (<Icon icon="trophy" color={trophyColor} />);
         }
 
         // Fetch driver name

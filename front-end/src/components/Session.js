@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Helper from "../utilities/Helper";
 import '../stylesheets/Session.css';
+import Icon from "./Icon";
 
 const sessionTypes = ["Unknown", "Practice", "Qualifying", "Race"];
 const trackNames = [
@@ -44,7 +45,7 @@ class Session extends Component {
         if (session.session_type === 3) {
             showLapsOrTimeLeft = (
                 <div className="session-block">
-                    <b>Total laps</b>
+                    <b><Icon icon="refresh" text="Total laps" /></b>
                     <div>{session.total_laps}</div>
                 </div>
             )
@@ -52,7 +53,7 @@ class Session extends Component {
             let timeLeft = Helper.secondsToStr(session.session_time_left, false);
             showLapsOrTimeLeft = (
                 <div className="session-block">
-                    <b>Session time left</b>
+                    <b><Icon icon="clock-o" text="Time left" /></b>
                     <div>{timeLeft}</div>
                 </div>
             );
@@ -73,13 +74,13 @@ class Session extends Component {
                 <div className="row">
                     <div className="col-6">
                         <div className="session-block">
-                            <b>Track name</b>
+                            <b><Icon icon="globe" text="Track name" /></b>
                             <div>{trackName}</div>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="session-block">
-                            <b>Session type</b>
+                            <b><Icon icon="info-circle" text="Session type" /></b>
                             <div>{sessionType}</div>
                         </div>
                     </div>
@@ -88,7 +89,7 @@ class Session extends Component {
                     </div>
                     <div className="col-6">
                         <div className={"session-block bg-" + flagColor}>
-                            <b>Flag</b>
+                            <b><Icon icon="flag" text="Flag" /></b>
                             <div>{flagLabel}</div>
                         </div>
                     </div>
