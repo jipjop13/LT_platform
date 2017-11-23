@@ -32,6 +32,7 @@ const trackNames = [
     "Suzuka Short",
 ];
 const flagColors = ["none", "green", "none", "yellow", "red"];
+const textColors = ["white", "white", "white", "black", "white"];
 const flagLabels = ["None", "All clear", "None", "Danger", "Session stopped"];
 
 class Session extends Component {
@@ -67,6 +68,7 @@ class Session extends Component {
 
         // Get flag
         let flagColor = flagColors[session.vehicle_fia_flags];
+        let textColor = textColors[session.vehicle_fia_flags];
         let flagLabel = flagLabels[session.vehicle_fia_flags];
 
         return (
@@ -88,7 +90,7 @@ class Session extends Component {
                         {showLapsOrTimeLeft}
                     </div>
                     <div className="col-6">
-                        <div className={"session-block bg-" + flagColor}>
+                        <div className={"session-block bg-" + flagColor + " " + textColor}>
                             <b><Icon icon="flag" text="Flag" /></b>
                             <div>{flagLabel}</div>
                         </div>

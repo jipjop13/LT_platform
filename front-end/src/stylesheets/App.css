@@ -53,6 +53,14 @@ button:active {
     color: #cd7f32!important;
 }
 
+.black {
+    color: black!important;
+}
+
+.white {
+    color: white!important;
+}
+
 .none {
     display: none!important;
 }
