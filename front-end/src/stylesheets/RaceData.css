@@ -4,7 +4,7 @@
 }
 
 .RaceData .table thead th {
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid rgba(255, 255, 255, 0.1);
     border-bottom: 0;
     background-color: rgba(255, 255, 255, 0.1);
 }
