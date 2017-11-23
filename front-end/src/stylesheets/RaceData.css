@@ -1,14 +1,32 @@
 
-.RaceData .table th,
-.RaceData .table td {
+.RaceData .table thead {
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 10px;
+}
+
+.RaceData .table thead th {
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.RaceData .table tbody td {
     border-top: 0;
 }
 
-.RaceData .table-striped thead,
 .RaceData .table-striped tbody tr:nth-of-type(even) {
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 0;
     background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 10px;
 }
 
 .RaceData .table-striped tbody tr:nth-of-type(odd) {
+    border-top: 0;
+    border-bottom: 0;
     background-color: transparent;
+}
+
+.RaceData .table-striped tbody tr:nth-of-type(even):hover,
+.RaceData .table-striped tbody tr:nth-of-type(odd):hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }

@@ -17,7 +17,7 @@ class Stream extends Component {
     render() {
         return (
             <div className="Stream">
-                <div id="twitch-embed" className="shadow"/>
+                <div id="twitch-embed" />
             </div>
         );
     }

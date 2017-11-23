@@ -25,9 +25,12 @@ class Car extends Component {
             sectorThreeTime = data.current_lap_time - data.sector_1_time - data.sector_2_time;
 
         // Gap
-        let gap = 0;
-        if (data.car_ahead)
+        let gap = "";
+        if (data.car_ahead) {
             gap = data.car_ahead.current_lap_time - data.current_lap_time;
+            gap = gap.toFixed(3);
+            gap = "+" + gap;
+        }
 
         // Convert time in seconds to a readable format
         let bestLapTime = Helper.secondsToStr(data.best_lap_time);
@@ -35,7 +38,6 @@ class Car extends Component {
         sectorOneTime = Helper.secondsToStr(sectorOneTime);
         sectorTwoTime = Helper.secondsToStr(sectorTwoTime);
         sectorThreeTime = Helper.secondsToStr(sectorThreeTime);
-        gap = Helper.secondsToStr(gap);
 
         // Check if in pits
         let inPits = "";

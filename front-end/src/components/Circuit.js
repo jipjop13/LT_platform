@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import circuit from "../assets/images/china.svg";
+import china from "../assets/images/china.svg";
 import '../stylesheets/Circuit.css'
 
 class Circuit extends Component {
@@ -7,7 +7,7 @@ class Circuit extends Component {
     render() {
         return (
             <div className="Circuit">
-                <img src={circuit} alt="circuit"/>
+                <img src={china} className="circuit" alt="circuit"/>
             </div>
         )
     }

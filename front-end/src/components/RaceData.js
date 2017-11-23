@@ -395,7 +395,7 @@ class RaceData extends Component {
         return (
             <div className="RaceData">
                 <div className="table-responsive">
-                    <table className="table table-striped table-hover table-sm shadow">
+                    <table className="table table-striped table-sm">
                         <thead>
                             {headers}
                         </thead>

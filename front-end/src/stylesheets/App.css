@@ -3,7 +3,3 @@ body {
     background: linear-gradient(135deg, #1B2F43 20%, #06121E 80%) no-repeat fixed;
     color: white;
 }
-
-.shadow {
-    box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
-}
