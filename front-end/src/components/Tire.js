@@ -20,13 +20,11 @@ class Tire extends Component {
         let color = Tire.TYPES[type];
         let label = Tire.TYPES_LABELS[type];
         return (
-            <div className="Tire">
-                <Icon icon="circle-o-notch"
-                      color={color}
-                      data-toggle="tooltip"
-                      data-placement="left"
-                      title={label}
-                      aria-hidden="true" />
+            <div className="Tire"
+                 data-toggle="tooltip"
+                 data-placement="left"
+                 title={label} >
+                <Icon icon="circle-o-notch" color={color} />
             </div>
         );
     }
