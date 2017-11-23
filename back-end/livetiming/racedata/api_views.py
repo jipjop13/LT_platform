@@ -29,6 +29,7 @@ class ReceiveLiveData(APIView):
             CURRENT_SESSIONS[session_id] = session
 
         for car in live_data['cars']:
+            print(datetime.now())
             LiveCarData.objects.create(
                 driver_id=car['driver_id'],
                 session=CURRENT_SESSIONS[session_id],
@@ -43,8 +44,7 @@ class ReceiveLiveData(APIView):
                 penalties=car['penalties'],
                 vehicle_fia_flag=live_data['session']['vehicle_fia_flags'],
             )
-
-        print(LiveCarData.objects.all().count())
+            print(datetime.now())
 
         return Response(status=200)
 
