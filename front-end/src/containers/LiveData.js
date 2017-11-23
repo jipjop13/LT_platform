@@ -16,7 +16,7 @@ const data = {
         "session_type": 2,
         "drs_allowed": 0,
         "track_number": 0,
-        "vehicle_fia_flags": 4,
+        "vehicle_fia_flags": 0,
         "session_time_left": 6853.77001953125,
         "number_of_cars": 20
     },

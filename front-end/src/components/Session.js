@@ -31,7 +31,7 @@ const trackNames = [
     "Suzuka Short",
 ];
 const flagColors = ["none", "green", "none", "yellow", "red"];
-const flagLabels = ["", "All clear", "", "Danger", "Session stopped"];
+const flagLabels = ["None", "All clear", "None", "Danger", "Session stopped"];
 
 class Session extends Component {
 
