@@ -3,3 +3,8 @@ body {
     background: linear-gradient(135deg, #1B2F43 20%, #06121E 80%) no-repeat fixed;
     color: white;
 }
+
+button:focus,
+button:active {
+    outline: 0!important;
+}

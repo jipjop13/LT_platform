@@ -13,13 +13,13 @@ class NavBar extends Component {
                     </span>
                     <button className="navbar-toggler" type="button"
                             data-toggle="collapse"
-                            data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent"
+                            data-target="#navBarCollapsible"
+                            aria-controls="navBarCollapsible"
                             aria-expanded="false"
                             aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon" />
+                        <i className="fa fa-lg fa-bars" aria-hidden="true" />
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div className="collapse navbar-collapse" id="navBarCollapsible">
                         <div className="navbar-nav ml-auto">
                             <a className="nav-item nav-link" href="#">
                                 <i className="fa fa-lg fa-sign-in" aria-hidden="true" />
