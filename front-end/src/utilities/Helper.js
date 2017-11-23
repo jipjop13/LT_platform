@@ -18,7 +18,7 @@ class Helper {
             prefix = "0:";
         if (seconds < 10)
             prefix += "0";
-        return prefix + duration.format("m:ss.ms");
+        return prefix + duration.format("m:ss.SSS");
     }
 
 }
