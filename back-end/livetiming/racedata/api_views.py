@@ -1,5 +1,7 @@
 import json
 
+from datetime import datetime
+from decimal import Decimal
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -20,7 +22,7 @@ class ReceiveLiveData(APIView):
             request (Request): The request containing the POST data.
         """
         live_data = json.loads(request.body)
-        session_id = live_data['session_id']
+        session_id = live_data['session']['session_id']
 
         if session_id not in CURRENT_SESSIONS:
             session = Session.objects.get(id=session_id)
@@ -30,17 +32,19 @@ class ReceiveLiveData(APIView):
             LiveCarData.objects.create(
                 driver_id=car['driver_id'],
                 session=CURRENT_SESSIONS[session_id],
-                current_lap_time=car['current_lap_time'],
-                best_lap_time=car['best_lap_time'],
-                sector_1_time=car['sector_1_time'],
-                sector_2_time=car['sector_2_time'],
+                current_lap_time=Decimal(str(car['current_lap_time'])),
+                best_lap_time=Decimal(str(car['best_lap_time'])),
+                sector_1_time=Decimal(str(car['sector_1_time'])),
+                sector_2_time=Decimal(str(car['sector_2_time'])),
                 car_position=car['car_position'],
                 tyre_compound=car['tyre_compound'],
                 in_pits=car['in_pits'],
                 current_lap_invalid=car['current_lap_invalid'],
                 penalties=car['penalties'],
-                vehicle_fia_flag=car['vehicle_fia_flag'],
+                vehicle_fia_flag=live_data['session']['vehicle_fia_flags'],
             )
+
+        print(LiveCarData.objects.all().count())
 
         return Response(status=200)
 

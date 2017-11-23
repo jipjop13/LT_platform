@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'livetiming.racedata',
     'rest_framework',
+    'livetiming.racedata',
 ]
 
 MIDDLEWARE = [
