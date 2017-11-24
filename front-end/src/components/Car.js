@@ -14,9 +14,10 @@ const teams = [
     "force-india",
     "williams",
     "toro-rosso",
-    "",
-    "",
-    "haas"
+    "caterham",
+    "marussia",
+    "haas",
+    "manor",
 ];
 
 class Car extends Component {
