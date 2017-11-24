@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Helper from "../utilities/Helper";
-import '../stylesheets/Session.css';
-import Icon from "./Icon";
+import Card from "./Card";
 
 const sessionTypes = ["Unknown", "Practice", "Qualifying", "Race"];
 const trackNames = [
@@ -44,20 +43,10 @@ class Session extends Component {
         // Show laps when it is a race, else show time left
         let showLapsOrTimeLeft = null;
         if (session.session_type === 3) {
-            showLapsOrTimeLeft = (
-                <div className="session-block">
-                    <b><Icon icon="refresh" text="Total laps" /></b>
-                    <div>{session.total_laps}</div>
-                </div>
-            )
+            showLapsOrTimeLeft = (<Card icon="refresh" text="Total laps" value={session.total_laps} />);
         } else {
             let timeLeft = Helper.secondsToStr(session.session_time_left, false);
-            showLapsOrTimeLeft = (
-                <div className="session-block">
-                    <b><Icon icon="clock-o" text="Time left" /></b>
-                    <div>{timeLeft}</div>
-                </div>
-            );
+            showLapsOrTimeLeft = (<Card icon="clock-o" text="Time left" value={timeLeft} />);
         }
 
         // Get session type
@@ -75,25 +64,17 @@ class Session extends Component {
             <div className="Session">
                 <div className="row">
                     <div className="col-6">
-                        <div className="session-block">
-                            <b><Icon icon="globe" text="Track name" /></b>
-                            <div>{trackName}</div>
-                        </div>
+                        <Card icon="globe" text="Track name" value={trackName} />
                     </div>
                     <div className="col-6">
-                        <div className="session-block">
-                            <b><Icon icon="info-circle" text="Session type" /></b>
-                            <div>{sessionType}</div>
-                        </div>
+                        <Card icon="info-circle" text="Session type" value={sessionType} />
                     </div>
                     <div className="col-6">
                         {showLapsOrTimeLeft}
                     </div>
                     <div className="col-6">
-                        <div className={"session-block bg-" + flagColor + " " + textColor}>
-                            <b><Icon icon="flag" text="Flag" /></b>
-                            <div>{flagLabel}</div>
-                        </div>
+                        <Card icon="flag" text="Flag" value={flagLabel}
+                                      classes={"bg-" + flagColor + " " + textColor} />
                     </div>
                 </div>
             </div>
