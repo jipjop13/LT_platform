@@ -36,7 +36,7 @@ class Car extends Component {
         // Convert time in seconds to a readable format
         let bestLapTime = Helper.secondsToStr(data.best_lap_time);
         let currentLapTime = Helper.secondsToStr(data.current_lap_time);
-        let lastLapTime = Helper.secondsToStr(data.last_lap_time);
+        let lastLapTime = Helper.secondsToStr(data.lastLapTime);
         sectorOneTime = Helper.secondsToStr(sectorOneTime);
         sectorTwoTime = Helper.secondsToStr(sectorTwoTime);
         sectorThreeTime = Helper.secondsToStr(sectorThreeTime);
@@ -48,7 +48,7 @@ class Car extends Component {
 
         // Check if in pits
         let pits = 0;
-        if (data.in_pits === 1 || data.in_pits === 2)
+        if (data.pits === 1 || data.pits === 2)
             pits = (<b className="red">IN PIT</b>);
 
         // Check car position
@@ -66,45 +66,45 @@ class Car extends Component {
 
         // Initial state
         this.state = {
-            car_position: carPosition,
-            driver_id: data.driver_id,
+            carPosition: carPosition,
+            driverId: data.driver_id,
             driver: driver,
             interval: interval,
-            best_lap_time: bestLapTime,
-            last_lap_time: lastLapTime,
-            current_lap_time: currentLapTime,
-            sector_1_time: sectorOneTime,
-            sector_2_time: sectorTwoTime,
-            sector_3_time: sectorThreeTime,
-            current_lap_number: data.current_lap_number,
-            in_pits: pits,
-            tyre_compound: data.tyre_compound,
-            car_ahead: data.car_ahead,
-            car_behind: data.car_behind,
+            bestLapTime: bestLapTime,
+            lastLapTime: lastLapTime,
+            currentLapTime: currentLapTime,
+            sectorOneTime: sectorOneTime,
+            sectorTwoTime: sectorTwoTime,
+            sectorThreeTime: sectorThreeTime,
+            currentLapNumber: data.current_lap_number,
+            pits: pits,
+            TyreCompound: data.tyre_compound,
+            carAhead: data.car_ahead,
+            carBehind: data.car_behind,
         }
 
     }
 
     handleOnClick(event) {
         event.preventDefault();
-        alert(this.state.driver_id);
+        alert(this.state.driverId);
     }
 
     render() {
         return (
             <tr className="Car" onClick={(e) => this.handleOnClick(e)}>
-                <td>{this.state.car_position}</td>
+                <td>{this.state.carPosition}</td>
                 <td>{this.state.driver}</td>
                 <td>{this.state.interval}</td>
-                <td>{this.state.best_lap_time}</td>
-                <td>{this.state.current_lap_time}</td>
-                <td>{this.state.sector_1_time}</td>
-                <td>{this.state.sector_2_time}</td>
-                <td>{this.state.sector_3_time}</td>
-                <td>{this.state.last_lap_time}</td>
-                <td>{this.state.current_lap_number}</td>
-                <td>{this.state.in_pits}</td>
-                <td><Tire type={this.state.tyre_compound} /></td>
+                <td>{this.state.bestLapTime}</td>
+                <td>{this.state.currentLapTime}</td>
+                <td>{this.state.sectorOneTime}</td>
+                <td>{this.state.sectorTwoTime}</td>
+                <td>{this.state.sectorThreeTime}</td>
+                <td>{this.state.lastLapTime}</td>
+                <td>{this.state.currentLapNumber}</td>
+                <td>{this.state.pits}</td>
+                <td><Tire type={this.state.TyreCompound} /></td>
             </tr>
         );
     }
