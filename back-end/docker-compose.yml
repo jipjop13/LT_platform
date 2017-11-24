@@ -13,7 +13,7 @@ services:
     links:
      - db
     ports:
-     - "8000:8000"
+     - "80:8000"
     volumes:
      - .:/home/docker/code/
       # Add variables to environment.
@@ -25,6 +25,4 @@ services:
      - DB_ENV_HOST=db
      - DB_ENV_PORT=3306
 
-    # Run debug mode script.
-    command: /home/docker/code/run_debug.sh
-#    command: python3 /home/docker/code/manage.py runserver 0.0.0.0:8000
+    command: python3 /home/docker/code/manage.py runserver 0.0.0.0:8000
