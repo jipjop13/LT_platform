@@ -27,8 +27,8 @@ class RaceData extends Component {
         let cars = Helper.sortByKey(this.props.data.cars, 'car_position');
         for(let i=0; i<cars.length; i++) {
             let car = cars[i];
-            car.carAhead = cars[i-1];
-            car.carBehind = cars[i+1];
+            car.car_ahead = cars[i-1];
+            car.car_behind = cars[i+1];
             rows.push(
                 <Car key={i} data={car} />
             )
