@@ -2,24 +2,29 @@ version: '3'
 
 services:
   db:
-    image: mariadb:latest
+    image: mysql:5.6
     environment:
       MYSQL_DATABASE: livetiming
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
       MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./deploy/mariadb/init-data:/docker-entrypoint-initdb.d
-    ports:
-      - "3306:3306"
   web:
     build: .
-    command: python3 /home/docker/code/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/home/docker/code/
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
     links:
-    - db
+     - db
+    ports:
+     - "8000:8000"
+    volumes:
+     - .:/home/docker/code/
+      # Add variables to environment.
+    environment:
+     - DEBUG=True
+     - DB_ENV_NAME=livetiming
+     - DB_ENV_USER=admin
+     - DB_ENV_PASSWORD=admin
+     - DB_ENV_HOST=db
+     - DB_ENV_PORT=3306
+
+    # Run debug mode script.
+    command: /home/docker/code/run_debug.sh
+#    command: python3 /home/docker/code/manage.py runserver 0.0.0.0:8000
