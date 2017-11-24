@@ -28,7 +28,6 @@ RUN apt-get update && \
 	python3-pip \
     mysql-client \
     libmysqlclient-dev \
-    python-mysqldb \
 	nginx \
 	supervisor \
 	sqlite3 && \
