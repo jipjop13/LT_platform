@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helper from "../utilities/Helper";
 import Car from "./Car";
-import '../stylesheets/RaceData.css';
+import '../stylesheets/components/RaceData.css';
 
 class RaceData extends Component {
 
@@ -9,6 +9,7 @@ class RaceData extends Component {
         let headers = (
             <tr>
                 <th>Pos</th>
+                <th/>
                 <th>Driver</th>
                 <th>Interval</th>
                 <th>Fastest lap</th>

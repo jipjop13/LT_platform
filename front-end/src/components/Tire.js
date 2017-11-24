@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../stylesheets/Tire.css'
+import '../stylesheets/Tires.css'
 import Icon from "./Icon";
 
 const $ = window.$;

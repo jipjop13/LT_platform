@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import china from "../assets/images/china.svg";
 import australia from "../assets/images/australia.svg";
-import '../stylesheets/Circuit.css'
+import '../stylesheets/components/Circuit.css'
 
 class Circuit extends Component {
 

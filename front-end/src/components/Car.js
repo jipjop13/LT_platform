@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import Tire from "./Tire";
 import Helper from "../utilities/Helper";
 import Icon from "./Icon";
+import '../stylesheets/Teams.css';
+
+const teams = [
+    "red-bull",
+    "ferrari",
+    "mclaren",
+    "renault",
+    "mercedes",
+    "sauber",
+    "force-india",
+    "williams",
+    "toro-rosso",
+    "",
+    "",
+    "haas"
+];
 
 class Car extends Component {
 
@@ -64,11 +80,16 @@ class Car extends Component {
         // Fetch driver name
         let driver = "jipjop13";
 
+        // Get team color
+        let teamColor = teams[data.team_id];
+
         // Initial state
         this.state = {
             carPosition: carPosition,
             driverId: data.driver_id,
             driver: driver,
+            teamId: data.team_id,
+            teamColor: teamColor,
             interval: interval,
             bestLapTime: bestLapTime,
             lastLapTime: lastLapTime,
@@ -94,6 +115,7 @@ class Car extends Component {
         return (
             <tr className="Car" onClick={(e) => this.handleOnClick(e)}>
                 <td>{this.state.carPosition}</td>
+                <td className={this.state.teamColor} />
                 <td>{this.state.driver}</td>
                 <td>{this.state.interval}</td>
                 <td>{this.state.bestLapTime}</td>

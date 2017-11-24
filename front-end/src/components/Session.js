@@ -37,7 +37,6 @@ const flagLabels = ["None", "All clear", "None", "Danger", "Session stopped"];
 class Session extends Component {
 
     render() {
-
         let session = this.props.data.session;
 
         // Show laps when it is a race, else show time left
@@ -73,8 +72,7 @@ class Session extends Component {
                         {showLapsOrTimeLeft}
                     </div>
                     <div className="col-6">
-                        <Card icon="flag" text="Flag" value={flagLabel}
-                                      classes={"bg-" + flagColor + " " + textColor} />
+                        <Card icon="flag" text="Flag" value={flagLabel} classes={textColor + " bg-" + flagColor} />
                     </div>
                 </div>
             </div>

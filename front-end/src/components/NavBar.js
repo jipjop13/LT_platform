@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../stylesheets/NavBar.css';
 import Icon from "./Icon";
+import '../stylesheets/components/NavBar.css';
 
 class NavBar extends Component {
 

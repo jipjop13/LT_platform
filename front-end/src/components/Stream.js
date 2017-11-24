@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../stylesheets/Stream.css';
+import '../stylesheets/components/Stream.css';
 
 const Twitch = window.Twitch;
 

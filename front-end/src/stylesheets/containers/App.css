@@ -8,3 +8,8 @@ button:focus,
 button:active {
     outline: 0!important;
 }
+
+table th,
+table td {
+    text-align: center;
+}
