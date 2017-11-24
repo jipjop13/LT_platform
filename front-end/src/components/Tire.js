@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../stylesheets/Tire.css'
+import Icon from "./Icon";
 
 const $ = window.$;
 
@@ -19,12 +20,11 @@ class Tire extends Component {
         let color = Tire.TYPES[type];
         let label = Tire.TYPES_LABELS[type];
         return (
-            <div className="Tire">
-                <i className={"fa fa-circle-o-notch " + color}
-                   data-toggle="tooltip"
-                   data-placement="left"
-                   title={label}
-                   aria-hidden="true" />
+            <div className="Tire"
+                 data-toggle="tooltip"
+                 data-placement="left"
+                 title={label} >
+                <Icon icon="circle-o-notch" color={color} />
             </div>
         );
     }

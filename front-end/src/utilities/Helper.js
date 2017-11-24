@@ -11,14 +11,20 @@ class Helper {
         });
     }
 
-    static secondsToStr(seconds) {
+    static secondsToStr(seconds, showMs = true) {
         let duration = moment.duration(seconds, 'seconds');
         let prefix = "";
         if (seconds < 60)
             prefix = "0:";
         if (seconds < 10)
             prefix += "0";
-        return prefix + duration.format("m:ss.SSS");
+        let format = null;
+        if (showMs) {
+            format = duration.format("m:ss.SSS");
+        } else {
+            format = duration.format("m:ss");
+        }
+        return prefix + format;
     }
 
 }

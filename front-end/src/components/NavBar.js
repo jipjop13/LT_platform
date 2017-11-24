@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../stylesheets/NavBar.css';
+import Icon from "./Icon";
 
 class NavBar extends Component {
 
@@ -8,8 +9,7 @@ class NavBar extends Component {
             <div className="NavBar">
                 <nav className="navbar navbar-expand-lg">
                     <span className="navbar-brand mb-0 h1">
-                        <i className="fa fa-lg fa-clock-o" aria-hidden="true" />
-                        &nbsp;LiveTiming Platform
+                        <Icon icon="clock-o" text="LiveTiming Platform" large={true} />
                     </span>
                     <button className="navbar-toggler" type="button"
                             data-toggle="collapse"
@@ -17,13 +17,12 @@ class NavBar extends Component {
                             aria-controls="navBarCollapsible"
                             aria-expanded="false"
                             aria-label="Toggle navigation">
-                        <i className="fa fa-lg fa-bars" aria-hidden="true" />
+                        <Icon icon="bars" large={true} />
                     </button>
                     <div className="collapse navbar-collapse" id="navBarCollapsible">
                         <div className="navbar-nav ml-auto">
                             <a className="nav-item nav-link" href="#">
-                                <i className="fa fa-lg fa-sign-in" aria-hidden="true" />
-                                &nbsp;Login
+                                <b><Icon icon="sign-in" text="Login" large={true} /></b>
                             </a>
                         </div>
                     </div>

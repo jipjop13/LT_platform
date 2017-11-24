@@ -1,0 +1,9 @@
+
+.Session .session-block {
+    border-top: 3px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
