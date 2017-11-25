@@ -5,19 +5,18 @@ import Icon from "./Icon";
 import '../stylesheets/Teams.css';
 
 const teams = [
-    "red-bull",
     "ferrari",
     "mclaren",
+    "red-bull",
     "renault",
-    "mercedes",
     "sauber",
+    "mercedes",
     "force-india",
     "williams",
     "toro-rosso",
-    "caterham",
-    "marussia",
+    "",
+    "",
     "haas",
-    "manor",
 ];
 
 class Car extends Component {
@@ -79,7 +78,7 @@ class Car extends Component {
         }
 
         // Fetch driver name
-        let driver = "jipjop13";
+        let driver = data.driver_id;
 
         // Get team color
         let teamColor = teams[data.team_id];
@@ -116,7 +115,7 @@ class Car extends Component {
         return (
             <tr className="Car" onClick={(e) => this.handleOnClick(e)}>
                 <td>{this.state.carPosition}</td>
-                <td className={this.state.teamColor} />
+                <td><Icon icon="square" color={this.state.teamColor} /></td>
                 <td>{this.state.driver}</td>
                 <td>{this.state.interval}</td>
                 <td>{this.state.bestLapTime}</td>
