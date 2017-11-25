@@ -15,9 +15,11 @@ class Session(models.Model):
     number_of_cars = models.IntegerField()
     track_number = models.IntegerField()
     session_type = models.IntegerField()
+    session_time_left = models.DecimalField(max_digits=20, decimal_places=5, default=0)
 
 
 class LiveCarData(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     driver_id = models.IntegerField(null=False)
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
     current_lap_time = models.DecimalField(max_digits=20, decimal_places=14, default=0)
