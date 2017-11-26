@@ -37,7 +37,6 @@ const flagLabels = ["None", "All clear", "None", "Danger", "Session stopped"];
 class Session extends Component {
 
     render() {
-
         let session = this.props.data.session;
 
         // Show laps when it is a race, else show time left
@@ -56,9 +55,9 @@ class Session extends Component {
         let trackName = trackNames[session.track_number];
 
         // Get flag
-        let flagColor = flagColors[session.vehicle_fia_flags];
-        let textColor = textColors[session.vehicle_fia_flags];
-        let flagLabel = flagLabels[session.vehicle_fia_flags];
+        let flagColor = flagColors[session.vehicle_fia_flag];
+        let textColor = textColors[session.vehicle_fia_flag];
+        let flagLabel = flagLabels[session.vehicle_fia_flag];
 
         return (
             <div className="Session">
@@ -74,7 +73,7 @@ class Session extends Component {
                     </div>
                     <div className="col-6">
                         <Card icon="flag" text="Flag" value={flagLabel}
-                                      classes={"bg-" + flagColor + " " + textColor} />
+                              classes={"bg-" + flagColor + " " + textColor} />
                     </div>
                 </div>
             </div>

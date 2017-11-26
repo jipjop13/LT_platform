@@ -8,7 +8,24 @@ class Car extends Component {
     constructor(props) {
         super(props);
 
-        let data = props.data;
+        this.state = {
+            carPosition: null,
+            driver: null,
+            interval: null,
+            bestLapTime: null,
+            currentLapTime: null,
+            sectorOneTime: null,
+            sectorTwoTime: null,
+            sectorThreeTime: null,
+            lastLapTime: null,
+            currentLapNumber: null,
+            pits: null,
+            TyreCompound: null,
+        }
+    }
+
+    componentWillReceiveProps() {
+        let data = this.props.data;
 
         // Sector 1
         let sectorOneTime = data.sector_1_time;
@@ -36,19 +53,18 @@ class Car extends Component {
         // Convert time in seconds to a readable format
         let bestLapTime = Helper.secondsToStr(data.best_lap_time);
         let currentLapTime = Helper.secondsToStr(data.current_lap_time);
-        let lastLapTime = Helper.secondsToStr(data.lastLapTime);
+        let lastLapTime = Helper.secondsToStr(data.last_lap_time);
         sectorOneTime = Helper.secondsToStr(sectorOneTime);
         sectorTwoTime = Helper.secondsToStr(sectorTwoTime);
         sectorThreeTime = Helper.secondsToStr(sectorThreeTime);
 
         //Check if current lap is invalid
-        if (data.current_lap_invalid) {
+        if (data.current_lap_invalid)
             currentLapTime = (<b className="red">INVALID</b>);
-        }
 
         // Check if in pits
         let pits = 0;
-        if (data.pits === 1 || data.pits === 2)
+        if (data.in_pits === 1 || data.in_pits === 2)
             pits = (<b className="red">IN PIT</b>);
 
         // Check car position
@@ -61,33 +77,30 @@ class Car extends Component {
             carPosition = (<Icon icon="trophy" color={trophyColor} />);
         }
 
-        // Fetch driver name
-        let driver = "jipjop13";
+        let driver = data.driver_id;
+        let tyreCompound = data.tyre_compound;
+        let currentLapNumber = data.current_lap_number;
 
-        // Initial state
-        this.state = {
+        // Update state
+        this.setState({
             carPosition: carPosition,
-            driverId: data.driver_id,
             driver: driver,
             interval: interval,
             bestLapTime: bestLapTime,
-            lastLapTime: lastLapTime,
             currentLapTime: currentLapTime,
             sectorOneTime: sectorOneTime,
             sectorTwoTime: sectorTwoTime,
             sectorThreeTime: sectorThreeTime,
-            currentLapNumber: data.current_lap_number,
+            lastLapTime: lastLapTime,
+            currentLapNumber: currentLapNumber,
             pits: pits,
-            TyreCompound: data.tyre_compound,
-            carAhead: data.car_ahead,
-            carBehind: data.car_behind,
-        }
-
+            TyreCompound: tyreCompound,
+        });
     }
 
     handleOnClick(event) {
         event.preventDefault();
-        alert(this.state.driverId);
+        alert(this.state.driver)
     }
 
     render() {
