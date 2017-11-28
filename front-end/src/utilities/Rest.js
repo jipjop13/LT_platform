@@ -3,9 +3,9 @@ import axios from "axios";
 class Rest {
 
     static get(callback) {
-        axios.get("http://94.214.140.215:8001/livetiming/api/get-live-data/7/", {
+        axios.get("http://145.37.166.171:8001/livetiming/api/get-live-data/7/", {
                 auth: {
-                    username: 'patrick',
+                    username: 'rick',
                     password: 'moi12345'
                 },
             }

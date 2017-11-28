@@ -37,7 +37,7 @@ const flagLabels = ["None", "All clear", "None", "Danger", "Session stopped"];
 class Session extends Component {
 
     render() {
-        let session = this.props.data.session;
+        let session = this.props.data;
 
         // Show laps when it is a race, else show time left
         let showLapsOrTimeLeft = null;

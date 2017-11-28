@@ -7,7 +7,7 @@ class RaceData extends Component {
 
     render() {
         let rows = [];
-        let cars = Helper.sortByKey(this.props.data.cars, 'car_position');
+        let cars = Helper.sortByKey(this.props.data, 'car_position');
         for(let i=0; i<cars.length; i++) {
             let car = cars[i];
             car.car_ahead = cars[i-1];

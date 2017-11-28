@@ -24,7 +24,15 @@ class Car extends Component {
         }
     }
 
+    componentDidMount() {
+        this.updateState();
+    }
+
     componentWillReceiveProps() {
+        this.updateState();
+    }
+
+    updateState() {
         let data = this.props.data;
 
         // Sector 1
@@ -39,7 +47,7 @@ class Car extends Component {
 
         // Sector 3
         let sectorThreeTime = 0;
-        if (data.sector_1_time && data.sector_2_time)
+        if (data.sector_1_time !== 0 && data.sector_2_time !== 0)
             sectorThreeTime = data.current_lap_time - data.sector_1_time - data.sector_2_time;
 
         // Interval
