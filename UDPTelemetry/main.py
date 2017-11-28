@@ -113,7 +113,7 @@ def send_data(data):
         requests.post(
             'http://URL.URL/livetiming/api/post-live-data/',  # insert correct URL
             data=dumped_json,
-            auth=HTTPBasicAuth('patrick', 'moi12345'),  # insert usename and password of the API
+            auth=HTTPBasicAuth('username', 'password'),  # insert usename and password of the API
         )
     except ConnectionError:
         print('Cannot connect to backend, retrying...')
