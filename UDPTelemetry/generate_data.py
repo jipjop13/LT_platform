@@ -28,7 +28,7 @@ def generate_data():
                 'car_position': i,
                 'current_lap_number': i,
                 'tyre_compound': random.randint(0, 6),
-                'in_pits': True if i % 2 else False,
+                'in_pits': random.randint(0, 2),
                 'current_lap_invalid': True if i % 2 else False,
                 'penalties': random.randint(0, 20),
             }
