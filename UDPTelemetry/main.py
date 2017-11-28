@@ -2,6 +2,7 @@ import socket
 import struct
 import json
 import requests
+from requests.auth import HTTPBasicAuth
 
 UDP_IP = "127.0.0.1"
 UDP_PORT = 20777
@@ -103,13 +104,19 @@ def send_data(data):
 
     json_data = {}
     json_data['session'] = session.__dict__
+    json_data['session']['session_id'] = 7  # hardcoded session ID
     json_data['cars'] = cars_json
     dumped_json = json.dumps(json_data)
 
     print("JSON send")
-    print(dumped_json)
-    #r = requests.post('URL', dumped_json)
-    #print(r.status_code)
+    try:
+        requests.post(
+            'http://URL.URL/livetiming/api/post-live-data/',  # insert correct URL
+            data=dumped_json,
+            auth=HTTPBasicAuth('patrick', 'moi12345'),  # insert usename and password of the API
+        )
+    except ConnectionError:
+        print('Cannot connect to backend, retrying...')
 
 while True:
     data, addr = sock.recvfrom(1289)
