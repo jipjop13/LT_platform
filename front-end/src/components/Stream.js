@@ -9,7 +9,7 @@ class Stream extends Component {
         new Twitch.Embed("twitch-embed", {
             width: '100%',
             height: '100%',
-            channel: "monstercat",
+            channel: "boschdave",
             layout: "video"
         })
     }

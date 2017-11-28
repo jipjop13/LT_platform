@@ -4,6 +4,7 @@ import Circuit from "../components/Circuit";
 import Stream from "../components/Stream";
 import NavBar from "../components/NavBar";
 import Session from "../components/Session";
+import Rest from "../utilities/Rest";
 
 const data = {
     "session": {
@@ -16,7 +17,7 @@ const data = {
         "session_type": 3,
         "drs_allowed": 0,
         "track_number": 0,
-        "vehicle_fia_flags": 3,
+        "vehicle_fia_flag": 3,
         "session_time_left": 6853.77001953125,
         "number_of_cars": 20
     },
@@ -50,9 +51,9 @@ const data = {
             "car_position": 8,
             "current_lap_number": 4,
             "tyre_compound": 0,
-            "in_pits": 1,
+            "in_pits": 0,
             "sector": 2,
-            "current_lap_invalid": 1,
+            "current_lap_invalid": 0,
             "penalties": 0
         },
         {
@@ -101,7 +102,7 @@ const data = {
             "car_position": 9,
             "current_lap_number": 4,
             "tyre_compound": 0,
-            "in_pits": 2,
+            "in_pits": 0,
             "sector": 2,
             "current_lap_invalid": 0,
             "penalties": 0
@@ -366,33 +367,64 @@ const data = {
 
 class LiveData extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: {
+                session: {},
+                cars: []
+            }
+        }
+    }
+
+    componentDidMount() {
+        // this.fetchData();
+        //
+        // setInterval(() => {
+        //     this.fetchData()
+        // }, 1000);
+
+        this.setState({
+            data: data
+        });
+    }
+
+    fetchData() {
+        Rest.get((data) => {
+            this.setState({
+                data: data
+            });
+        });
+    }
+
     render() {
         return (
             <div className="LiveData">
                 <NavBar />
                 <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12 col-md-6">
-                        <div className="row">
-                            <div className="col-12">
-                                <Stream />
-                            </div>
-                            <div className="col-12">
-                                <div className="row">
-                                    <div className="col-12 col-md-7">
-                                        <Circuit />
-                                    </div>
-                                    <div className="col-12 col-md-5">
-                                        <Session data={data} />
+                    <div className="row">
+                        <div className="col-12 col-md-6">
+                            <div className="row">
+                                <div className="col-12">
+                                    <Stream />
+                                </div>
+                                <div className="col-12">
+                                    <div className="row">
+                                        <div className="col-12 col-md-7">
+                                            <Circuit />
+                                        </div>
+                                        <div className="col-12 col-md-5">
+                                            <Session data={this.state.data.session} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="col-12 col-md-6">
+                            <RaceData data={this.state.data.cars} />
+                        </div>
                     </div>
-                    <div className="col-12 col-md-6">
-                        <RaceData data={data} />
-                    </div>
-                </div>
                 </div>
             </div>
         );

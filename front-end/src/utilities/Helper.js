@@ -12,7 +12,8 @@ class Helper {
     }
 
     static secondsToStr(seconds, showMs = true) {
-        let duration = moment.duration(seconds, 'seconds');
+        let number = parseFloat(seconds);
+        let duration = moment.duration(number, 'seconds');
         let prefix = "";
         if (seconds < 60)
             prefix = "0:";
