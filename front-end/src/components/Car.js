@@ -24,16 +24,16 @@ class Car extends Component {
         }
     }
 
-    componentDidMount() {
-        this.updateState();
+    componentWillMount() {
+        this.updateState(this.props);
     }
 
-    componentWillReceiveProps() {
-        this.updateState();
+    componentWillReceiveProps(props) {
+        this.updateState(props);
     }
 
-    updateState() {
-        let data = this.props.data;
+    updateState(props) {
+        let data = props.data;
 
         // Sector 1
         let sectorOneTime = data.sector_1_time;
