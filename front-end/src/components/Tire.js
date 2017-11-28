@@ -3,11 +3,19 @@ import '../stylesheets/Tire.css'
 import Icon from "./Icon";
 
 const $ = window.$;
+const tireTypes = ["us", "ss", "s", "m", "h", "i", "w"];
+const tireTypesLabels = ["Ultra soft", "Super soft", "Soft", "Medium", "Hard", "Intermediate", "Wet"];
 
 class Tire extends Component {
 
-    static TYPES = ["us", "ss", "s", "m", "h", "i", "w"];
-    static TYPES_LABELS = ["Ultra soft", "Super soft", "Soft", "Medium", "Hard", "Intermediate", "Wet"];
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            color: null,
+            label: null
+        }
+    }
 
     componentDidMount() {
         $(function () {
@@ -15,16 +23,31 @@ class Tire extends Component {
         });
     }
 
+    componentWillMount() {
+        this.updateState(this.props);
+    }
+
+    componentWillReceiveProps(props) {
+        this.updateState(props);
+    }
+
+    updateState(props) {
+        let color = tireTypes[props.type];
+        let label = tireTypesLabels[props.type];
+
+        this.setState({
+            color: color,
+            label: label
+        })
+    }
+
     render() {
-        let type = this.props.type;
-        let color = Tire.TYPES[type];
-        let label = Tire.TYPES_LABELS[type];
         return (
             <div className="Tire"
                  data-toggle="tooltip"
                  data-placement="left"
-                 title={label} >
-                <Icon icon="circle-o-notch" color={color} />
+                 title={this.state.label} >
+                <Icon icon="circle-o-notch" color={this.state.color} />
             </div>
         );
     }

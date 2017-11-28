@@ -407,7 +407,7 @@ class LiveData extends Component {
                         <div className="col-12 col-md-6">
                             <div className="row">
                                 <div className="col-12">
-                                    <Stream />
+                                    {/*<Stream />*/}
                                 </div>
                                 <div className="col-12">
                                     <div className="row">
@@ -415,7 +415,7 @@ class LiveData extends Component {
                                             <Circuit />
                                         </div>
                                         <div className="col-12 col-md-5">
-                                            <Session data={this.state.data.session} />
+                                            <Session session={this.state.data.session} />
                                         </div>
                                     </div>
                                 </div>
