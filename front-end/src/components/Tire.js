@@ -3,11 +3,10 @@ import '../stylesheets/Tire.css'
 import Icon from "./Icon";
 
 const $ = window.$;
+const tireTypes = ["us", "ss", "s", "m", "h", "i", "w"];
+const tireTypesLabels = ["Ultra soft", "Super soft", "Soft", "Medium", "Hard", "Intermediate", "Wet"];
 
 class Tire extends Component {
-
-    static TYPES = ["us", "ss", "s", "m", "h", "i", "w"];
-    static TYPES_LABELS = ["Ultra soft", "Super soft", "Soft", "Medium", "Hard", "Intermediate", "Wet"];
 
     componentDidMount() {
         $(function () {
@@ -17,8 +16,8 @@ class Tire extends Component {
 
     render() {
         let type = this.props.type;
-        let color = Tire.TYPES[type];
-        let label = Tire.TYPES_LABELS[type];
+        let color = tireTypes[type];
+        let label = tireTypesLabels[type];
         return (
             <div className="Tire"
                  data-toggle="tooltip"
