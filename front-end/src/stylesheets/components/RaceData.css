@@ -1,24 +1,18 @@
 
-.RaceData .table-sm td {
+.RaceData .table-sm thead th,
+.RaceData .table-sm tbody td {
+    border: 0;
     padding: 8px 6px 8px 6px;
 }
 
 .RaceData .table thead {
-    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
-}
-
-.RaceData .table thead th {
-    border-top: 3px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 0;
     background-color: rgba(255, 255, 255, 0.1);
-}
-
-.RaceData .table tbody td {
-    border-top: 0;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
 }
 
 .RaceData .table-striped tbody tr:nth-of-type(even) {
     background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 10px;
 }
 
 .RaceData .table-striped tbody tr:nth-of-type(odd) {

@@ -371,30 +371,26 @@ class LiveData extends Component {
         super(props);
 
         this.state = {
+            interval: 1000,
             data: {
-                session: {},
-                cars: []
+                session: null,
+                cars: null
             }
         }
     }
 
-    componentWillMount() {
-        // this.fetchData();
-        //
-        // setInterval(() => {
-        //     this.fetchData()
-        // }, 1000);
-
-        this.setState({
-            data: data
-        });
+    componentDidMount() {
+        setInterval(() => {this.fetchData()}, this.state.interval);
     }
 
     fetchData() {
-        Rest.get((data) => {
-            this.setState({
-                data: data
-            });
+        // Rest.get((data) => {
+        //     this.setState({
+        //         data: data
+        //     });
+        // });
+        this.setState({
+            data: data
         });
     }
 

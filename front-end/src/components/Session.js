@@ -59,40 +59,42 @@ class Session extends Component {
 
     updateState(props) {
         let session = props.session;
+        if (session) {
 
-        // Show laps when it is a race, else show time left
-        let showLapsOrTimeLeft = null;
-        if (session.session_type === 3) {
-            showLapsOrTimeLeft = (<Card icon="refresh"
-                                        title="Total laps"
-                                        text={session.total_laps} />);
-        } else {
-            let timeLeft = Helper.secondsToStr(session.session_time_left, false);
-            showLapsOrTimeLeft = (<Card icon="clock-o"
-                                        title="Time left"
-                                        text={timeLeft} />);
+            // Show laps when it is a race, else show time left
+            let showLapsOrTimeLeft = null;
+            if (session.session_type === 3) {
+                showLapsOrTimeLeft = (<Card icon="refresh"
+                                            title="Total laps"
+                                            text={session.total_laps}/>);
+            } else {
+                let timeLeft = Helper.secondsToStr(session.session_time_left, false);
+                showLapsOrTimeLeft = (<Card icon="clock-o"
+                                            title="Time left"
+                                            text={timeLeft}/>);
+            }
+
+            // Get session type
+            let sessionType = sessionTypes[session.session_type];
+
+            // Get map name
+            let trackName = trackNames[session.track_number];
+
+            // Get flag
+            let flagColor = flagColors[session.vehicle_fia_flag];
+            let textColor = textColors[session.vehicle_fia_flag];
+            let flagLabel = flagLabels[session.vehicle_fia_flag];
+
+            // Update state
+            this.setState({
+                showLapsOrTimeLeft: showLapsOrTimeLeft,
+                sessionType: sessionType,
+                trackName: trackName,
+                flagColor: flagColor,
+                textColor: textColor,
+                flagLabel: flagLabel,
+            });
         }
-
-        // Get session type
-        let sessionType = sessionTypes[session.session_type];
-
-        // Get map name
-        let trackName = trackNames[session.track_number];
-
-        // Get flag
-        let flagColor = flagColors[session.vehicle_fia_flag];
-        let textColor = textColors[session.vehicle_fia_flag];
-        let flagLabel = flagLabels[session.vehicle_fia_flag];
-
-        // Update state
-        this.setState({
-            showLapsOrTimeLeft: showLapsOrTimeLeft,
-            sessionType: sessionType,
-            trackName: trackName,
-            flagColor: flagColor,
-            textColor: textColor,
-            flagLabel: flagLabel,
-        });
     }
 
     render() {

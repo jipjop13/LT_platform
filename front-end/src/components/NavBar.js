@@ -22,7 +22,7 @@ class NavBar extends Component {
                     <div className="collapse navbar-collapse" id="navBarCollapsible">
                         <div className="navbar-nav ml-auto">
                             <a className="nav-item nav-link" href="#">
-                                <b><Icon icon="sign-in" text="Login" isLarge={true} /></b>
+                                <Icon icon="sign-in" text="Login" isLarge={true} />
                             </a>
                         </div>
                     </div>

@@ -40,9 +40,9 @@ class Card extends Component {
             <div className="Card">
                 <div className={classes}>
                     <div className="card-body">
-                        <h6 className="card-title">
-                            <Icon icon={this.state.icon} text={this.state.title} />
-                        </h6>
+                        <p className="card-title">
+                            <b><Icon icon={this.state.icon} text={this.state.title} /></b>
+                        </p>
                         <p className="card-text">{this.state.text}</p>
                     </div>
                 </div>

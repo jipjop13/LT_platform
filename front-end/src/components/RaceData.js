@@ -22,18 +22,23 @@ class RaceData extends Component {
     }
 
     updateState(props) {
-        let rows = [];
-        let cars = Helper.sortByKey(props.data, 'car_position');
-        for(let i=0; i<cars.length; i++) {
-            let car = cars[i];
-            car.car_ahead = cars[i-1];
-            car.car_behind = cars[i+1];
-            rows.push(<Car key={i} data={car} />)
-        }
+        let data = props.data;
+        if (data) {
+            // Define each car's data as a row in the table (sorted by car position)
+            let rows = [];
+            let cars = Helper.sortByKey(data, 'car_position');
+            for (let i = 0; i < cars.length; i++) {
+                let car = cars[i];
+                car.car_ahead = cars[i - 1];
+                car.car_behind = cars[i + 1];
+                rows.push(<Car key={i} data={car}/>)
+            }
 
-        this.setState({
-            rows: rows
-        })
+            // Update state
+            this.setState({
+                rows: rows
+            })
+        }
     }
 
     render() {
@@ -43,8 +48,8 @@ class RaceData extends Component {
                     <table className="table table-striped table-sm">
                         <thead>
                             <tr>
-                                <th/>
-                                <th/>
+                                <th>Pos</th>
+                                <th>Team</th>
                                 <th>Name</th>
                                 <th>Interval</th>
                                 <th>Fastest lap</th>
