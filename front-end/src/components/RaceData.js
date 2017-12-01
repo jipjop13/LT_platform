@@ -5,26 +5,47 @@ import '../stylesheets/components/RaceData.css';
 
 class RaceData extends Component {
 
-    render() {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            rows: null
+        }
+    }
+
+    componentWillMount() {
+        this.updateState(this.props)
+    }
+
+    componentWillReceiveProps(props) {
+        this.updateState(props)
+    }
+
+    updateState(props) {
         let rows = [];
-        let cars = Helper.sortByKey(this.props.data, 'car_position');
+        let cars = Helper.sortByKey(props.data, 'car_position');
         for(let i=0; i<cars.length; i++) {
             let car = cars[i];
             car.car_ahead = cars[i-1];
             car.car_behind = cars[i+1];
-            rows.push(
-                <Car key={i} data={car} />
-            )
+            rows.push(<Car key={i} data={car} />)
         }
 
+        this.setState({
+            rows: rows
+        })
+    }
+
+    render() {
         return (
             <div className="RaceData">
                 <div className="table-responsive">
                     <table className="table table-striped table-sm">
                         <thead>
                             <tr>
-                                <th>Pos</th>
-                                <th>Driver</th>
+                                <th/>
+                                <th/>
+                                <th>Name</th>
                                 <th>Interval</th>
                                 <th>Fastest lap</th>
                                 <th>Current lap</th>
@@ -38,7 +59,7 @@ class RaceData extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {rows}
+                            {this.state.rows}
                         </tbody>
                     </table>
                 </div>

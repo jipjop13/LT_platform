@@ -378,7 +378,7 @@ class LiveData extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         // this.fetchData();
         //
         // setInterval(() => {

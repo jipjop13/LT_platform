@@ -63,10 +63,14 @@ class Session extends Component {
         // Show laps when it is a race, else show time left
         let showLapsOrTimeLeft = null;
         if (session.session_type === 3) {
-            showLapsOrTimeLeft = (<Card icon="refresh" text="Total laps" value={session.total_laps} />);
+            showLapsOrTimeLeft = (<Card icon="refresh"
+                                        title="Total laps"
+                                        text={session.total_laps} />);
         } else {
             let timeLeft = Helper.secondsToStr(session.session_time_left, false);
-            showLapsOrTimeLeft = (<Card icon="clock-o" text="Time left" value={timeLeft} />);
+            showLapsOrTimeLeft = (<Card icon="clock-o"
+                                        title="Time left"
+                                        text={timeLeft} />);
         }
 
         // Get session type
@@ -96,17 +100,24 @@ class Session extends Component {
             <div className="Session">
                 <div className="row">
                     <div className="col-6">
-                        <Card icon="globe" text="Track name" value={this.state.trackName} />
+                        <Card icon="globe"
+                              title="Track name"
+                              text={this.state.trackName} />
                     </div>
                     <div className="col-6">
-                        <Card icon="info-circle" text="Session type" value={this.state.sessionType} />
+                        <Card icon="info-circle"
+                              title="Session type"
+                              text={this.state.sessionType} />
                     </div>
                     <div className="col-6">
                         {this.state.showLapsOrTimeLeft}
                     </div>
                     <div className="col-6">
-                        <Card icon="flag" text="Flag" value={this.state.flagLabel}
-                              classes={"bg-" + this.state.flagColor + " " + this.state.textColor} />
+                        <Card icon="flag"
+                              title="Flag"
+                              text={this.state.flagLabel}
+                              bgColor={"bg-" + this.state.flagColor}
+                              txtColor={this.state.textColor} />
                     </div>
                 </div>
             </div>

@@ -4,6 +4,8 @@ import 'moment-duration-format';
 class Helper {
 
     static sortByKey(array, key) {
+        if (array === undefined)
+            return [];
         return array.sort((a, b) => {
             let x = a[key];
             let y = b[key];

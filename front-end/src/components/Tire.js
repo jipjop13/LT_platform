@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import '../stylesheets/Tires.css'
 import Icon from "./Icon";
 
-const $ = window.$;
-const tireTypes = ["us", "ss", "s", "m", "h", "i", "w"];
-const tireTypesLabels = ["Ultra soft", "Super soft", "Soft", "Medium", "Hard", "Intermediate", "Wet"];
+const types = ["us", "ss", "s", "m", "h", "i", "w"];
+const labels = ["Ultra soft", "Super soft", "Soft", "Medium", "Hard", "Intermediate", "Wet"];
 
 class Tire extends Component {
 
@@ -17,12 +16,6 @@ class Tire extends Component {
         }
     }
 
-    componentDidMount() {
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
-    }
-
     componentWillMount() {
         this.updateState(this.props);
     }
@@ -32,8 +25,8 @@ class Tire extends Component {
     }
 
     updateState(props) {
-        let color = tireTypes[props.type];
-        let label = tireTypesLabels[props.type];
+        let color = types[props.type];
+        let label = labels[props.type];
 
         this.setState({
             color: color,
@@ -43,11 +36,8 @@ class Tire extends Component {
 
     render() {
         return (
-            <div className="Tire"
-                 data-toggle="tooltip"
-                 data-placement="left"
-                 title={this.state.label} >
-                <Icon icon="circle-o-notch" color={this.state.color} />
+            <div className="Tire">
+                <Icon icon="circle-o-notch" color={this.state.color} tooltip={this.state.label} />
             </div>
         );
     }

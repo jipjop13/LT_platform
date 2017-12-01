@@ -3,21 +3,7 @@ import Tire from "./Tire";
 import Helper from "../utilities/Helper";
 import Icon from "./Icon";
 import '../stylesheets/Teams.css';
-
-const teams = [
-    "ferrari",
-    "mclaren",
-    "red-bull",
-    "renault",
-    "sauber",
-    "mercedes",
-    "force-india",
-    "williams",
-    "toro-rosso",
-    "",
-    "",
-    "haas",
-];
+import Team from "./Team";
 
 class Car extends Component {
 
@@ -27,6 +13,7 @@ class Car extends Component {
         this.state = {
             carPosition: null,
             driver: null,
+            team: null,
             interval: null,
             bestLapTime: null,
             currentLapTime: null,
@@ -101,10 +88,8 @@ class Car extends Component {
             carPosition = (<Icon icon="trophy" color={trophyColor} />);
         }
 
-        // Get team color
-        let teamColor = teams[data.team_id];
-
         let driver = data.driver_id;
+        let team = data.team_id;
         let tyreCompound = data.tyre_compound;
         let currentLapNumber = data.current_lap_number;
 
@@ -112,8 +97,7 @@ class Car extends Component {
         this.setState({
             carPosition: carPosition,
             driver: driver,
-            teamId: data.team_id,
-            teamColor: teamColor,
+            team: team,
             interval: interval,
             bestLapTime: bestLapTime,
             currentLapTime: currentLapTime,
@@ -135,8 +119,8 @@ class Car extends Component {
     render() {
         return (
             <tr className="Car" onClick={(e) => this.handleOnClick(e)}>
-                <td>{this.state.carPosition}</td>
-                <td><Icon icon="square" color={this.state.teamColor} /></td>
+                <td><b>{this.state.carPosition}</b></td>
+                <td><Team team={this.state.team} /></td>
                 <td>{this.state.driver}</td>
                 <td>{this.state.interval}</td>
                 <td>{this.state.bestLapTime}</td>
