@@ -1,4 +1,8 @@
 
+.RaceData .table-sm td {
+    padding: 8px 6px 8px 6px;
+}
+
 .RaceData .table thead {
     box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
 }

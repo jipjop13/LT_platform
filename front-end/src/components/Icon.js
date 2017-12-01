@@ -4,25 +4,55 @@ const $ = window.$;
 
 class Icon extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            icon: null,
+            color: null,
+            isLarge: null,
+            text: null,
+            tooltip: null,
+        }
+    }
+
     componentDidMount() {
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         });
     }
 
+    componentWillMount() {
+        this.updateState(this.props)
+    }
+
+    componentWillReceiveProps(props) {
+        this.updateState(props)
+    }
+
+    updateState(props) {
+        let isLarge = props.isLarge ? " fa-lg " : " ";
+        let text = props.text ? (" " + props.text) : "";
+
+        this.setState({
+            icon: props.icon,
+            color: props.color,
+            isLarge: isLarge,
+            text: text,
+            tooltip: props.tooltip,
+        })
+    }
+
     render() {
-        let isLarge = this.props.large ? " fa-lg " : " ";
-        let classes = "fa fa-" + this.props.icon + isLarge + this.props.color;
-        let text = this.props.text ? (" " + this.props.text) : null;
-        let tooltip = this.props.tooltip;
+        let classes = "fa fa-" + this.state.icon + this.state.isLarge + this.state.color;
         return (
             <span className="Icon">
                 <i className={classes}
                    data-toggle="tooltip"
                    data-placement="left"
-                   title={tooltip}
+                   title={this.state.tooltip}
                    aria-hidden="true" />
-                {text}
+                {this.state.text}
             </span>
         );
     }

@@ -9,7 +9,7 @@ class NavBar extends Component {
             <div className="NavBar">
                 <nav className="navbar navbar-expand-lg">
                     <span className="navbar-brand mb-0 h1">
-                        <Icon icon="clock-o" text="LiveTiming Platform" large={true} />
+                        <Icon icon="clock-o" text="LiveTiming Platform" isLarge={true} />
                     </span>
                     <button className="navbar-toggler" type="button"
                             data-toggle="collapse"
@@ -17,12 +17,12 @@ class NavBar extends Component {
                             aria-controls="navBarCollapsible"
                             aria-expanded="false"
                             aria-label="Toggle navigation">
-                        <Icon icon="bars" large={true} />
+                        <Icon icon="bars" isLarge={true} />
                     </button>
                     <div className="collapse navbar-collapse" id="navBarCollapsible">
                         <div className="navbar-nav ml-auto">
                             <a className="nav-item nav-link" href="#">
-                                <b><Icon icon="sign-in" text="Login" large={true} /></b>
+                                <b><Icon icon="sign-in" text="Login" isLarge={true} /></b>
                             </a>
                         </div>
                     </div>
