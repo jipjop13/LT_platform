@@ -26,6 +26,8 @@ RUN apt-get update && \
 	python3-dev \
 	python3-setuptools \
 	python3-pip \
+    mysql-client \
+    libmysqlclient-dev \
 	nginx \
 	supervisor \
 	sqlite3 && \
@@ -49,5 +51,5 @@ RUN pip3 install -r /home/docker/code/requirements.txt
 # add (the rest of) our code
 COPY . /home/docker/code/
 
-EXPOSE 80
+EXPOSE 8001
 CMD ["supervisord", "-n"]
