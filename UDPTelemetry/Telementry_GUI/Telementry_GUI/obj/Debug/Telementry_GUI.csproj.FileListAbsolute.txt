@@ -8,3 +8,13 @@ C:\Users\Rick\source\repos\Telementry_GUI\Telementry_GUI\obj\Debug\Telementry_GU
 C:\Users\Rick\source\repos\Telementry_GUI\Telementry_GUI\obj\Debug\Telementry_GUI.csproj.CoreCompileInputs.cache
 C:\Users\Rick\source\repos\Telementry_GUI\Telementry_GUI\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Rick\source\repos\Telementry_GUI\Telementry_GUI\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\obj\Debug\Telementry_GUI.csprojResolveAssemblyReference.cache
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\obj\Debug\Telementry_GUI.csproj.GenerateResource.Cache
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\obj\Debug\Telementry_GUI.csproj.CoreCompileInputs.cache
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Rick\Documents\Code\LT_platform\UDPTelemetry\Telementry_GUI\Telementry_GUI\obj\Debug\WindowsFormsApp1.pdb
